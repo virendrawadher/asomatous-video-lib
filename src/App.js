@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <SideBar
-        
+
       />
       <Routes>
         <Route path = "/" element = {<VideoListing/>} />
