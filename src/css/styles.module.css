@@ -1,0 +1,452 @@
+:root{
+    --gray: #D1D5DB;
+    --black: #1F2937;
+    --navcolor: #374151;
+    --font-color: #3B82F6;
+    --navborder: #9CA3AF;
+    --gray-300: #F9FAFB;
+}
+
+.upperline{
+    padding: 0.2rem;
+    background-color: var(--font-color);
+}
+.navheader{
+    position: fixed;
+    width: 100%;
+    background-color: var(--gray-300);
+    z-index: 9;
+    /* border-bottom: 2px solid var(--navborder); */
+    /* box-shadow: 0px 0px 6px var(--navborder); */
+}
+
+.navbar{
+    position: relative;
+    /* right: 10px; */
+    /* border-bottom: 2px solid var(--navcolor); */
+    width: 100%;
+    padding-top: 50px;
+}
+
+.name{
+    position: absolute;
+    top: 12px;
+    left: 3rem;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--font-color);
+}
+
+.socialtwitter, .socialgithub, .sociallinkedin{
+    position: absolute;
+    right: 8rem;
+    top: 1rem;
+    font-size: 25px;
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.socialgithub{
+    right: 12rem;
+}
+
+.sociallinkedin{
+    right: 4rem;
+}
+
+.sidebarwrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0rem;
+}
+
+.sidebarcontainer{
+    padding-top: 5rem;
+    background-color: var(--gray-300);
+    height: 100vh;
+    position: fixed;
+    width: 18%;
+    right: 0;
+    box-shadow: 0px 0px 6px var(--navborder);
+}
+
+.sidebarbutton{
+    background-color: var(--gray-300);
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    margin: 1rem;
+    width: 100%;
+}
+
+.sidebarlink{
+    width: 100%;
+    text-decoration: none;
+    color: var(--navcolor);
+    font-size: 20px;
+    margin-top: 1rem;
+    padding: 10px 0;
+    border-radius: 2px;
+}
+
+.sidebarlink:hover, .sidebarbutton:hover{
+    background-color: var(--font-color);
+    color: var(--gray-300);
+}
+
+.navmenu{
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 17rem;
+}
+
+.videocontent{
+    padding-top: 5rem;
+    margin-left: 3rem;
+}
+
+.videolink{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.likeheading{
+    width: 50%;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    left: -18.9rem;
+    margin-bottom: 1rem;
+}
+
+.noliked{
+    padding: 1rem;
+    font-size: 20px;
+    color: var(--navcolor);
+    width: 75%;
+    font-weight: 500;
+}
+
+.likeicon{
+    font-size: 25px;
+    position: absolute;
+    right: 1rem;
+    top: 0.7rem;
+    cursor: pointer;
+    /* border: 1px solid black;  */
+    /* z-index: 5; */
+}
+
+.videolisting{
+    /* width: 80%; */
+    /* position: relative; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* margin-right: 1rem; */
+    border: 2px solid var(--black);
+    /* margin-bottom: 1rem; */
+    /* height: 190px; */
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px var(--gray);
+    z-index: 5;
+}
+
+
+.framecontainer{
+    width: 85%;
+    padding-top: 7rem;
+    margin-left: 3rem;
+}
+
+.videoframewrapper{
+    width: 75%;
+    position: relative;
+    /* aspect-ratio: 16/9; */
+    padding-bottom: 40.25%;
+    padding-top: 25px;
+    height: 0;
+}
+
+.videoplayinglike{
+    position: absolute;
+    /* right: 13rem; */
+    top: 0.9rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.videoplayingliked{
+    /* color: var(--gray); */
+    width: 50px;
+    /* border-bottom: 2px solid black; */
+    padding: 20px;
+    position: absolute;
+    right: 190px;
+    top: 1rem;
+    cursor: pointer;
+}
+
+.videoplayingsave{
+    position: absolute;
+    right: 0.1rem;
+    top: 0.8rem;
+    font-size: 20px;
+    cursor: pointer;
+    width: 50px;
+}
+
+.videoplayingicon{
+    position: absolute;
+    top: 1rem;
+    right: 3.1rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.buttonwrapper, .buttonwrappers{
+    width: 50px;
+    /* border: 1px solid black; */
+    padding: 20px;
+    position: absolute;
+    right: 100px;
+    top: 1rem;
+}
+
+.buttonwrappers{
+    right: 190px;
+}
+
+.videoiframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.playlistcontainer{
+    /* max-height: 50vh;
+    overflow-y: scroll; */
+    margin-bottom: 1rem;
+}
+
+.playlistwrapper{
+    max-width: 75%;
+    /* padding-top: 2rem; */
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.playlistwrapper::-webkit-scrollbar{
+    display: none;
+}
+
+.playlistname{
+    width: 75%;
+    font-size: 24px;
+    /* margin-bottom: 0.5rem; */
+    position: relative;
+    text-align: left;
+    background-color: var(--gray-300);
+    /* z-index: 9; */
+}
+
+/* .modal{
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+} */
+
+.playlistlisting{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--navcolor);
+    width: 320px;
+    height: 380px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin: 1rem 1rem 1rem 0;
+    justify-content: space-between;
+    /* margin-top: 1rem;
+    margin-right: 1rem; */
+    
+}
+
+
+@media only screen and (min-width: 600px) {
+
+    .navmenu{
+        display: none;
+    }
+
+    .sidebarcontainer{
+        padding-top: 5rem;
+        background-color: var(--gray-300);
+        height: 100vh;
+        position: fixed;
+        width: 18%;
+        right: 0;
+        box-shadow: 0px 0px 6px var(--navborder);
+    }
+    
+    .videocontent{
+        /* height: 100vh; */
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap; 
+        /* margin-top: 5rem; */
+        padding-top: 5rem;
+    }
+
+    .videolisting{
+        width: 75%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 1rem;
+        border: 2px solid var(--black);
+        margin-bottom: 1rem;
+        height: 190px;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px 2px var(--gray);
+        /* z-index: -1; */
+    }
+
+    .videoimage{
+        position: absolute;
+        z-index: -1;
+        left: 1rem;
+    }
+
+    .videotitle{
+        position: absolute;
+        left: 22rem;
+        top: -1rem;
+        font-size: 20px;
+        z-index: -1;
+        color: var(--navcolor);
+    }
+
+    .videodate{
+        position: absolute;
+        left: 22rem;
+        z-index: -1;
+        top: 2.5rem;
+        color: var(--navcolor);
+    }
+
+    .videodesp{
+        max-width: 80%;
+        position: absolute;
+        top: 4rem;
+        left: 22rem;
+        text-align: left;
+        z-index: -1;
+        color: var(--navcolor);
+    }
+
+    .videoplayingcontainer{
+        position: relative;
+        width: 80%;
+    }
+
+    .videoplayingtitlecontainer{
+        position: relative;
+    }
+
+    .videoplayingtitle{
+        position: absolute;
+        top: 0.5rem;
+        left: 0px;
+        font-size: 24px;
+        font-weight: 500;
+    }
+    .videoplayviews{
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        font-weight: 400;
+        font-size: 15px;
+    }
+
+
+
+    .saveplaylistmodal{
+        width: 290px;
+        position: absolute;
+        right: 441px;
+        top: 360px;
+        background: white;
+        /* display: flex; */
+        flex-direction: column;
+        height: 300px;
+        border-radius: 2px;
+        box-shadow: 2px 2px 20px 2px var(--gray);
+        /* overflow-y: scroll */
+    }
+
+    .saveplaylistcontainer{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .saveplaylistwrapper{
+        /* overflow-y: scroll; */
+    }
+
+    /* .saveplaylistcontainer::-webkit-scrollbar{
+        display:;
+        width: 1rem;
+    } */
+
+    .saveplaylistwrapper::-webkit-scrollbar{
+        width: 1rem;
+    }
+
+    .saveplaylistinput{
+        padding: 2px 5px;
+        margin-top: 0.5rem;
+        font-size: 20px;
+    }
+
+    .saveplaylisttable{
+        margin-left: 2rem;
+    }
+
+    .saveplaylistcheckbox{
+        width: 20px;
+        height: 20px;
+    }
+
+    .saveplaylistname{
+        font-size: 20px;
+    }
+
+    .closeplaylist{
+        border-radius: 5px;
+        font-size: 20px;
+        border-radius: 5px;
+        position: fixed;
+        right: 466px;
+        bottom: 110px;
+        border: none;
+        padding: 2px 5px;
+        cursor: pointer
+    }
+    
+}
