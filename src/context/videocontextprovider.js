@@ -1,4 +1,4 @@
-import {useReducer, createContext, useContext} from 'react'
+import {useState ,useReducer, createContext, useContext} from 'react'
 import uuid from 'react-uuid';
 
 export const VideoListingContext = createContext();
@@ -10,10 +10,11 @@ export const VideoListingProvider = ({children}) => {
         name: "Demo Playlist",
         videos: []
     }
+    const [mobileMenu, setMobileMenu] = useState(false)
 
     const [state, dispatch] = useReducer(VideoListing, {videoListingData: [], videoPlay: {}, likedVideos: [], playListName: "", playLists: [initialPlayList],playListModal: false})
     return (
-        <VideoListingContext.Provider value = {{state, dispatch}}>
+        <VideoListingContext.Provider value = {{state, dispatch, mobileMenu, setMobileMenu}}>
             {children}
         </VideoListingContext.Provider>
     )
