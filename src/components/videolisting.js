@@ -20,13 +20,15 @@ const VideoListing = () => {
             {
                 state.videoListingData.map((videoList) => {
                     return(
-                        <div onClick = {() => dispatch({type: "VIDEOPLAY", videoList})}>
+                        <div onClick = {() => dispatch({type: "VIDEOPLAY", videoList})} className = {styles.videolistingcontainer}>
                             <NavLink to = {`/play/${videoList.id}`} className = {styles.videolink}>
                                 <div className = {styles.videolisting}>
                                     <img src = {videoList.snippet.thumbnails.medium.url} alt = {videoList.snippet.title} className = {styles.videoimage}/>
-                                    <h4 className = {styles.videotitle}>{videoList.snippet.title}</h4>
-                                    <span className = {styles.videodate}>{videoList.snippet.publishedAt.slice(0,10)}</span>
-                                    <div className = {styles.videodesp}>{videoList.snippet.localized.description.slice(0, 150)}</div>
+                                    <div className = {styles.videocontentcontainer}>
+                                        <h4 className = {styles.videotitle}>{videoList.snippet.title}</h4>
+                                        <div className = {styles.videodate}>{videoList.snippet.publishedAt.slice(0,10)}</div>
+                                        {/* <div className = {styles.videodesp}>{videoList.snippet.localized.description.slice(0, 150)}</div> */}
+                                    </div>
                                 </div>
                             </NavLink>
                         </div>

@@ -28,7 +28,7 @@ export const SavePLayList = () => {
     console.log("PlayList:- ", state.playLists)
 
     return (
-        <div onClick = {() => dispatch({type: "CLOSE"})} className = {styles.modal}>
+        <div onClick = {() => dispatch({type: "CLOSE"})} className = {styles.modal} style = {{display: state.playListModal ? "flex" : "none"}}>
             <div style = {{display: state.playListModal ? "flex" : "none"}} className = {styles.saveplaylistmodal} onClick = {(e) => e.stopPropagation()}>
                 <div className = {styles.saveplaylistcontainer}>
                 <div className = {styles.saveplaylistwrapper}>

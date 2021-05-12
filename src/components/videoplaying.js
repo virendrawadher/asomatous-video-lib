@@ -39,14 +39,16 @@ export const VideoPlay = () => {
                     <div className = {styles.videoplayingtitlecontainer}>
                         <span className = {styles.videoplayingtitle}>{videoplaying.snippet.title}</span>
                     </div>
-                    <span className = {styles.videoplayviews}>{videoplaying.statistics.viewCount}{" "}Views</span>{" "}
-                    <div onClick = {() => dispatch({type: "LIKED", payload: videoplaying})} className = {videoplaying.liked ? styles.buttonwrappers : styles.videoplayingliked}>
-                        <i className = {styles.videoplayingicon}><FaThumbsUp /></i>
-                        <span className = {styles.videoplayinglike}>{" "}{videoplaying.liked ? "Like" : "Liked"}</span>
-                    </div>{" "}
-                    <div onClick = {() => dispatch({type: "SAVE"})} className = {styles.buttonwrapper}>
-                        <i className = {styles.videoplayingicon}><RiPlayList2Fill/></i>
-                        <span className = {styles.videoplayingsave}>{" "}Save</span>
+                    <div style = {{position: "relative"}}>
+                        <span className = {styles.videoplayviews}>{videoplaying.statistics.viewCount}{" "}Views</span>{" "}
+                        <div onClick = {() => dispatch({type: "LIKED", payload: videoplaying})} className = {videoplaying.liked ? styles.buttonwrappers : styles.videoplayingliked}>
+                            <i className = {styles.videoplayingicon}><FaThumbsUp /></i>
+                            <span className = {styles.videoplayinglike}>{" "}{videoplaying.liked ? "Like" : "Liked"}</span>
+                        </div>{" "}
+                        <div onClick = {() => dispatch({type: "SAVE"})} className = {styles.buttonwrapper}>
+                            <i className = {styles.videoplayingicon}><RiPlayList2Fill/></i>
+                            <span className = {styles.videoplayingsave}>{" "}Save</span>
+                        </div>
                     </div>
                 </div>    
             </div>

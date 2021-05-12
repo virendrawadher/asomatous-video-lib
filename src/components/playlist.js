@@ -20,8 +20,8 @@ export const PlayList = () => {
                                 <Link to = {`/play/${vid.id}`} className = {styles.videolink}>
                                     <div className = {styles.playlistlisting}>
                                         <img src = {vid.snippet.thumbnails.medium.url} alt = {vid.snippet.title} className = {styles.playlistimage}/>
-                                        <h4 className = {styles.playlisttitle}>{vid.snippet.title}</h4>
-                                        <div className = {styles.playlistdesp}>{vid.snippet.localized.description.slice(0, 150)}</div>
+                                        <h4 className = {styles.playlisttitle} style = {{textAlign: "left", marginLeft: "0.5rem"}}>{vid.snippet.title}</h4>
+                                        {/* <div className = {styles.playlistdesp}>{vid.snippet.localized.description.slice(0, 150)}</div> */}
                                     </div>
                                 </Link>
 
