@@ -10,11 +10,12 @@ import {Routes, Route} from "react-router-dom"
 import { LikedVideos } from './components/likedvideos';
 import {PlayList} from "./components/playlist"
 import SideBar from './components/sidebar';
+import MobileMenu from './components/mobilemenu';
 
 const API_KEY = "AIzaSyD4ANODrI3sGUr62uvBz1z4I-Xi6zewie0";
 
 function App() {
-  const {dispatch} = useVideoListing()
+  const {dispatch, mobileMenu} = useVideoListing()
   // const [dataY, setDataY] = useState([])
   useEffect(() => {
     (async function DataYoutube(id) {
@@ -28,9 +29,8 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <SideBar
-
-      />
+      <SideBar/>
+      { mobileMenu && <MobileMenu/> }
       <Routes>
         <Route path = "/" element = {<VideoListing/>} />
         <Route path = "/play/:videoId" element = {<VideoPlay/>}/>
