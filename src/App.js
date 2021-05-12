@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+
 import './App.css';
 import { NavBar } from './components/navbar';
 import VideoListing from './components/videolisting';
@@ -16,7 +16,6 @@ const API_KEY = "AIzaSyD4ANODrI3sGUr62uvBz1z4I-Xi6zewie0";
 
 function App() {
   const {dispatch, mobileMenu} = useVideoListing()
-  // const [dataY, setDataY] = useState([])
   useEffect(() => {
     (async function DataYoutube(id) {
       const {data: {  items }} = await axios.get(

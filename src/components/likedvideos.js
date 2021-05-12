@@ -1,6 +1,5 @@
 import { useVideoListing } from "../context/videocontextprovider";
 import styles from "../css/styles.module.css"
-import { MdDelete } from "react-icons/md"
 import  {CgClose} from "react-icons/cg"
 import { Link } from "react-router-dom"
 

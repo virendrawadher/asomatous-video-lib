@@ -14,18 +14,10 @@ export const SavePLayList = () => {
             name: state.playListName, 
             videos: []
         }
-        // console.log(playL)
         dispatch({type: "PLAYLIST", payload: playL})
     }
 
-    const checker = () => {
-        return state.playLists.map((play) => {
-            return play.videos.map((vid) => {
-                return vid.id === state.videoPlay.id ? vid.findIndex((list) => list.playlistId === play.id): vid
-            })
-        })
-    }  
-    console.log("PlayList:- ", state.playLists)
+
 
     return (
         <div onClick = {() => dispatch({type: "CLOSE"})} className = {styles.modal} style = {{display: state.playListModal ? "flex" : "none"}}>
@@ -35,7 +27,6 @@ export const SavePLayList = () => {
                     <form onSubmit = {submitHandler}>
                         <input type = "text" value = {state.playListName} placeholder = "Enter the playlist name" onChange = {(e) => dispatch({type: "PLAYLISTNAME", payload: e.target.value})} className = {styles.saveplaylistinput}/>
                     </form>
-                    {/* <p><input type = "checkbox"/>Demo Playlist</p> */}
                     {
                         state.playLists.map((playL) => {
                             return (
@@ -56,7 +47,6 @@ export const SavePLayList = () => {
                     <button onClick = {() => dispatch({type: "CLOSE"})} className = {styles.closeplaylist}>Close</button>
                 </div> 
                 </div>
-                {/* <button>Add</button> */}
             </div>
         </div>
     )
