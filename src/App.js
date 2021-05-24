@@ -1,43 +1,73 @@
-
 import './App.css';
 import { NavBar } from './components/navbar';
 import VideoListing from './components/videolisting';
-import {VideoPlay} from "./components/videoplaying"
-import axios from "axios"
-import {useEffect} from "react"
+import { VideoPlay } from './components/videoplaying';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useVideoListing } from './context/videocontextprovider';
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route } from 'react-router-dom';
 import { LikedVideos } from './components/likedvideos';
-import {PlayList} from "./components/playlist"
+import { PlayList } from './components/playlist';
 import SideBar from './components/sidebar';
 import MobileMenu from './components/mobilemenu';
-
-const API_KEY = "AIzaSyD4ANODrI3sGUr62uvBz1z4I-Xi6zewie0";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const {dispatch, mobileMenu} = useVideoListing()
-  useEffect(() => {
-    (async function DataYoutube(id) {
-      const {data: {  items }} = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=u7MN0r84Nkg,15Z1mtiJnyk,EyVyipGTa1g,WVJ5_30v-J4,fdHjqVEQvLw,iipwjxKtRqs,dNfyngfxByg,7fBdnwLWu-Y,LSmQ8zhjyjE,mz_ztTzYbDE,dRxLfBEXmYQ,PEvKgZSDtVQ,cL1fwQqz-k4,gVU2cnLEsDU,Xxrq2n3DTkQ,8MBsBcbK63A,IVsri5bQLeM,J4CooI0kC6w,nti93iK7odY,USyvMGClNdY,ERtGhEHbMpI,xwKQdAt2CPU,37W4lcNEfGQ,D8o6pfifCsE,IDY2P0vM4AE,HYmnMZgmWWk,DlJkis91s58,PgYO3VB6ubo,Z2HEV4CcdFM&key=${API_KEY}`
-      );
-      console.log({ items });
-      dispatch({type: "LISTING", items})
-    })();
-  }, []);
-  return (
-    <div className="App">
-      <NavBar/>
-      <SideBar/>
-      { mobileMenu && <MobileMenu/> }
-      <Routes>
-        <Route path = "/" element = {<VideoListing/>} />
-        <Route path = "/play/:videoId" element = {<VideoPlay/>}/>
-        <Route path = "/likedvideos" element = {<LikedVideos/>}/>
-        <Route path = "/playlist" element = {<PlayList/>}/>
-      </Routes>
-    </div>
-  );
+	const { dispatch, mobileMenu } = useVideoListing();
+
+	const [loader, setLoader] = useState(false);
+	useEffect(() => {
+		(async function DataYoutube(id) {
+			try {
+				setLoader(true);
+				const { data } = await axios.get(
+					'https://cryptic-anchorage-74362.herokuapp.com/videolisting',
+				);
+
+				if (data.success) {
+					dispatch({ type: 'LISTING', payload: data.video });
+				}
+				// console.log({ items });
+				setLoader(false);
+			} catch (error) {
+				setLoader(false);
+				console.log(error);
+			}
+		})();
+	}, []);
+	return (
+		<div className='App'>
+			<NavBar />
+			<SideBar />
+			{mobileMenu && <MobileMenu />}
+			<Routes>
+				<Route
+					path='/'
+					element={<VideoListing loader={loader} setLoader={setLoader} />}
+				/>
+				<Route
+					path='/play/:videoId'
+					element={
+						<VideoPlay toast={toast} loader={loader} setLoader={setLoader} />
+					}
+				/>
+				<Route
+					path='/likedvideos'
+					element={
+						<LikedVideos toast={toast} loader={loader} setLoader={setLoader} />
+					}
+				/>
+				<Route
+					path='/playlist'
+					element={
+						<PlayList toast={toast} loader={loader} setLoader={setLoader} />
+					}
+				/>
+			</Routes>
+			<ToastContainer />
+		</div>
+	);
 }
 
 export default App;
