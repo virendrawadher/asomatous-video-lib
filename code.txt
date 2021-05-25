@@ -1,0 +1,47 @@
+    const checker = () => {
+        return state.playLists.map((play) => {
+            return play.videos.map((vid) => {
+                return vid.id === state.videoPlay.id ? vid.findIndex((list) => list.playlistId === play.id): vid
+            })
+        })
+    }  
+    console.log("PlayList:- ", state.playLists)
+
+        // useEffect(() => {
+    //     (async function(){
+    //         try {
+
+    //             const { data } = await axios.get(`https://cryptic-anchorage-74362.herokuapp.com/videolisting/${vidId.videoId}`)
+
+    //             console.log({data})
+
+    //             if(data.success){
+    //                 console.log("Video play")
+    //                 dispatch({type: "VIDEOPLAY", videoList: data.video})
+    //             }
+                
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+
+    //     )()
+    // }, [vidId.videoId])
+
+    
+        case "ADDPLAYLIST":
+            // console.log("dsdsd", state.playLists)
+            // console.log("data:- ", actions.payload)
+            // let checkPlayList = state.playLists.find(play => play._id === actions.payload.playL._id)
+            // console.log({checkPlayList})
+            // let check = actions.payload.playL.videos.findIndex(vid => vid.videoId === actions.payload.video.videoId)
+            // console.log({check})
+            // let playLis = state.playLists.map((pl) => {
+            //     return pl._id === checkPlayList._id ? (check === -1 ? {...pl, videos: pl.videos.concat({...state.videoPlay, playlistId: checkPlayList._id})}: pl): pl})
+            
+            // console.log("inside ADDPLAYLIST case", {playLis})
+
+            return {...state}
+            
+        case "CLOSE":
+            return {...state, playListModal: false}
